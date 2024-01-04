@@ -1,0 +1,6 @@
+pymongo
+pyTelegramBotAPI
+PyPDF2
+gTTS
+mtranslate
+googletrans==3.1.0a0 
