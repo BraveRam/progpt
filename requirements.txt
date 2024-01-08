@@ -1,6 +1,7 @@
 pymongo
-pyTelegramBotAPI==4.12.0
-PyPDF2==3.0.1
-gTTS==2.3.2
-mtranslate==1.8
+pyrogram
+pyTelegramBotAPI
+PyPDF2
+gTTS
+mtranslate
 googletrans==3.1.0a0 
