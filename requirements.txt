@@ -1,5 +1,5 @@
-httpcore==0.8.4
 pymongo
+httpcore
 pyTelegramBotAPI
 PyPDF2
 gTTS
