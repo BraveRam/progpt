@@ -1,5 +1,4 @@
 pytelegrambotapi
-pymongo
 PyPDF2
 gTTS
 mtranslate
