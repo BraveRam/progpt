@@ -1,3 +1,4 @@
+googletrans 
 opsai
 pytelegrambotapi
 PyPDF2
