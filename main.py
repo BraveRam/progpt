@@ -10,12 +10,16 @@ import PyPDF2
 import os
 import tempfile, datetime, time, math 
 from gtts import gTTS
-from googletrans import LANGCODES, Translator
+#from googletrans import LANGCODES, Translator
 from mtranslate import translate
 
-languages = list(LANGCODES.items())
+languages = []#list(LANGCODES.items())
 languages.append(("Oromic","om"))
+languages.append(("Amharic","am"))
 languages.append(("Tigrigna","ti"))
+languages.append(("German","de"))
+languages.append(("Hindi","hi"))
+languages.append(("Arabic","ar"))
 
 TOKEN = "5714196179:AAHR-dCr_Y2NoibADSLtflXciCNVGhyFhzQ"
 bot = telebot.TeleBot(TOKEN, parse_mode="html")
