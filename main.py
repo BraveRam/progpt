@@ -14,6 +14,7 @@ from gtts import gTTS
 from mtranslate import translate
 
 languages = []#list(LANGCODES.items())
+languages.append(("English","en"))
 languages.append(("Oromic","om"))
 languages.append(("Amharic","am"))
 languages.append(("Tigrigna","ti"))
@@ -85,8 +86,8 @@ def inline_query(query):
         reply_markup=markup
     )
 
-    if bot.get_chat_member("@mt_projectz", query.from_user.id).status == "left":
-        return bot.answer_inline_query(query.id, [result],
+    #if bot.get_chat_member("@mt_projectz", query.from_user.id).status == "left":
+        #return bot.answer_inline_query(query.id, [result],
                                        button=InlineQueryResultsButton(text="Click here to Join:)",
                                                                       start_parameter="start"),
                                        cache_time=1, is_personal=True)
@@ -126,7 +127,7 @@ def render_chat_gt(message, text, lang):
     try:
         s = Ai(query = text)
         cd = s.chat()
-        res = Translator().translate(cd, lang).text
+        res = translate(cd, lang)
         return bot.reply_to(message, res, parse_mode ="MARKDOWN",reply_markup=testbtn)		
     except Exception as e:
         print(e)
@@ -141,7 +142,7 @@ def ask_chat(message, text):
         data = translate(text, "en")
         return render_chat(message=message, text=data, lang=lang)
     else:
-        data = Translator().translate(text, "en").text
+        data = translate(text, "en")
         return render_chat_gt(message=message, text=data, lang=lang)
 
 def ex_coder(message, text):
