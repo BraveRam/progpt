@@ -20,6 +20,7 @@ languages.append(("Tigrigna","ti"))
 languages.append(("German","de"))
 languages.append(("Hindi","hi"))
 languages.append(("Arabic","ar"))
+languages.append(("French","fr"))
 
 TOKEN = "5714196179:AAHR-dCr_Y2NoibADSLtflXciCNVGhyFhzQ"
 bot = telebot.TeleBot(TOKEN, parse_mode="html")
@@ -214,16 +215,20 @@ def start(message):
     if user:
         if not "is_gallery" or "lang" in user:
             collection.update_one({"user_id": message.from_user.id}, {"$set": {"is_gallery": False, "lang": "en"}})
-        if bot.get_chat_member("@mt_projectz", message.from_user.id).status != "left":
-            bot.send_message(message.chat.id, f"{message.from_user.first_name}, Hello and welcome to poweful ChatGPT Bot👋\n\n<b>This bot can help you to do so many things and it\'s completely free🌀</b>\n\n<i>✨Select an option below or Just Ask me questions directly👇</i>", reply_markup=markups())
+            return welcome(message)
+        #if bot.get_chat_member("@mt_projectz", message.from_user.id).status != "left":
+            #bot.send_message(message.chat.id, f"{message.from_user.first_name}, Hello and welcome to poweful ChatGPT Bot👋\n\n<b>This bot can help you to do so many things and it\'s completely free🌀</b>\n\n<i>✨Select an option below or Just Ask me questions directly👇</i>", reply_markup=markups())
         else:
-            bot.send_message(message.chat.id, f"⚠️{message.from_user.first_name} before using this bot, kindly Join Our Channel👇", reply_markup=markup)
+            #pass
+            return welcome(message)
+            #bot.send_message(message.chat.id, f"⚠️{message.from_user.first_name} before using this bot, kindly Join Our Channel👇", reply_markup=markup)
     else:
         collection.insert_one({"user_id": message.from_user.id, "is_premium": False, "is_gallery": False, "lang": "en"})
-        if bot.get_chat_member("@mt_projectz", message.from_user.id).status != "left":
-            bot.send_message(message.chat.id, f"{message.from_user.first_name}, Hello and welcome to poweful ChatGPT Bot👋\n\n<b>This bot can help you to do so many things and it\'s completely free🌀</b>\n\n<i>✨Select an option below or Just Ask me questions directly👇</i>", reply_markup=markups())
-        else:
-            bot.send_message(message.chat.id, f"⚠️{message.from_user.first_name} before using this bot, kindly Join Our Channel👇", reply_markup=markup)
+        return welcome(message)
+        #if bot.get_chat_member("@mt_projectz", message.from_user.id).status != "left":
+            #bot.send_message(message.chat.id, f"{message.from_user.first_name}, Hello and welcome to poweful ChatGPT Bot👋\n\n<b>This bot can help you to do so many things and it\'s completely free🌀</b>\n\n<i>✨Select an option below or Just Ask me questions directly👇</i>", reply_markup=markups())
+        #else:
+            #bot.send_message(message.chat.id, f"⚠️{message.from_user.first_name} before using this bot, kindly Join Our Channel👇", reply_markup=markup)
 
 def answer_photo(message):
     b = bot.reply_to(message,"✨Reading what you sent....")
@@ -301,7 +306,7 @@ crypto = """
 
 <b>Tron(TRX)</b>: <code>TV6FUqCKGUq7SE4K2S3X19uc8te1uLYU5T</code>
 
-<i>🌍For others payment methods contact @BetterParrot:)</i>
+<i>🌍For others payment methods contact the admin - @BetterParrot:)</i>
 """
 
 inline = InlineKeyboardMarkup()
@@ -477,8 +482,8 @@ def resp(message):
         return collection.update_one({"user_id": message.from_user.id}, {"$set": {"is_gallery": False, "lang": "en"}})
     else:
         pass
-    if bot.get_chat_member("@mt_projectz", message.from_user.id).status == "left":
-        return bot.send_message(message.chat.id, f"⚠️{message.from_user.first_name} before using this bot, kindly Join Our Channel: @Mt_Projectz")
+    #if bot.get_chat_member("@mt_projectz", message.from_user.id).status == "left":
+        #return bot.send_message(message.chat.id, f"⚠️{message.from_user.first_name} before using this bot, kindly Join Our Channel: @Mt_Projectz")
     data = {
         "user_id": message.from_user.id,
         "time": time.time()
