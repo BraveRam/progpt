@@ -86,8 +86,8 @@ def inline_query(query):
         reply_markup=markup
     )
 
-    #if bot.get_chat_member("@mt_projectz", query.from_user.id).status == "left":
-        #return bot.answer_inline_query(query.id, [result],
+    if bot.get_chat_member("@mt_projectz", query.from_user.id).status == "left":
+        return bot.answer_inline_query(query.id, [result],
                                        button=InlineQueryResultsButton(text="Click here to Join:)",
                                                                       start_parameter="start"),
                                        cache_time=1, is_personal=True)
