@@ -10,14 +10,14 @@ import PyPDF2
 import os
 import tempfile, datetime, time, math 
 from gtts import gTTS
-from googletrans import LANGCODES, Translator
+#from googletrans import LANGCODES, Translator
 from mtranslate import translate
 
-languages = list(LANGCODES.items())
+languages = []#list(LANGCODES.items())
 languages.append(("Oromic","om"))
 languages.append(("Tigrigna","ti"))
 
-TOKEN = os.environ['BOT_TOKEN']
+TOKEN = "5714196179:AAHR-dCr_Y2NoibADSLtflXciCNVGhyFhzQ"
 bot = telebot.TeleBot(TOKEN, parse_mode="html")
 #server = Flask(__name__)
 
