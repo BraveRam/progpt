@@ -1,3 +1,4 @@
+opsai
 pytelegrambotapi
 PyPDF2
 gTTS
