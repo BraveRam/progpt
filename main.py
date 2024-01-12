@@ -189,6 +189,7 @@ def cast_state(message):
         bot.delete_state(message.from_user.id, message.chat.id)
         users = collection.find({})
         for i in users:
+            time.sleep(0.5)
             user = i["user_id"]
             try:
                 bot.send_message(user, message.text, parse_mode ="html")
