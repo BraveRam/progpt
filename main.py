@@ -23,7 +23,7 @@ languages.append(("Hindi","hi"))
 languages.append(("Arabic","ar"))
 languages.append(("French","fr"))
 
-TOKEN = "5714196179:AAHGENqd7-KmGchB-gf-lVylsMoV1hp5iSw"
+TOKEN = "5714196179:AAHOHc9e64kAbQ6zH4dlQEAJhjVAleKGX0I"
 bot = telebot.TeleBot(TOKEN, parse_mode="html")
 #server = Flask(__name__)
 
