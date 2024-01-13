@@ -67,7 +67,7 @@ def markups():
 def ask_coder(message, text):
     bot.send_chat_action(message.chat.id, "typing")
     try:
-        s = Ai(query = text+"\n\nUse emojis when you answer questions - if necessary and DO NOT talk about emojis you use!")
+        s = Ai(query = text)
         cd = s.code()
         return bot.send_message(message.chat.id, cd, parse_mode="MARKDOWN")
     except:
@@ -116,7 +116,7 @@ def inline_query(query):
 
 def render_chat(message, text, lang):
     try:
-        s = Ai(query = text+"\n\nUse emojis when you answer questions - if necessary and DO NOT talk about emojis you use!")
+        s = Ai(query = text)
         cd = s.chat()
         res = translate(cd, lang)
         return bot.reply_to(message, res, parse_mode ="MARKDOWN", reply_markup=testbtn)
@@ -125,7 +125,7 @@ def render_chat(message, text, lang):
 
 def render_chat_gt(message, text, lang):
     try:
-        s = Ai(query = text+"\n\nUse emojis when you answer questions - if necessary and DO NOT talk about emojis you use!")
+        s = Ai(query = text)
         cd = s.chat()
         res = translate(cd, lang)
         return bot.reply_to(message, res, parse_mode ="MARKDOWN",reply_markup=testbtn)		
@@ -148,7 +148,7 @@ def ask_chat(message, text):
 def ex_coder(message, text):
     bot.send_chat_action(message.chat.id, "typing")
     try:
-        s = Ai(query = text+"\n\nUse emojis when you answer questions - if necessary and DO NOT talk about emojis you use!")
+        s = Ai(query = text)
         cd = s.explain()
         return bot.send_message(message.chat.id, cd, parse_mode="MARKDOWN")
     except:
