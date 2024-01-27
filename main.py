@@ -482,12 +482,12 @@ def resp_group(message):
     bot.send_chat_action(message.chat.id, "typing")
     req = Ai(query = message.text.split(maxsplit=1)[1])
     res = req.chat()
-    bot.reply_to(message, res)
+    bot.reply_to(message, res, parse_mode="MARKDOWN")
   elif message.reply_to_message and message.reply_to_message.from_user.id == bot.get_me().id:
     bot.send_chat_action(message.chat.id, "typing")
     req = Ai(query = message.text)
     res = req.chat()
-    bot.reply_to(message, res)
+    bot.reply_to(message, res, parse_mode="MARKDOWN")
 
 @bot.message_handler(content_types =["text"], chat_types =["private"])
 def resp(message):
