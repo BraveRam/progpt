@@ -476,6 +476,18 @@ i2 = InlineKeyboardButton("🗞Gallery Images🗞", callback_data="gallery")
 i3 = InlineKeyboardButton("❌Cancel", callback_data="cancel")
 img_type.add(i1, i2, i3)
 
+@bot.message_handler(content_types =["text"], chat_types =["supergroup", "group"])
+def resp_group(message):
+  if message.text.startswith("/ask"):
+    bot.send_chat_action(message.chat.id, "typing")
+    req = Ai(query = message.text.split(maxsplit=1)[1])
+    res = req.chat()
+    bot.reply_to(message, res)
+  elif message.reply_to_message and message.reply_to_message.from_user.id == bot.get_me().id:
+    bot.send_chat_action(message.chat.id, "typing")
+    req = Ai(query = message.text)
+    res = req.chat()
+    bot.reply_to(message, res)
 
 @bot.message_handler(content_types =["text"], chat_types =["private"])
 def resp(message):
